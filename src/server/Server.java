@@ -8,10 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ovo on 22.01.2016.
@@ -22,7 +19,7 @@ public class Server {
     private ServerSocket server;
 
 
-    public Server() {
+    public Server() throws ConcurrentModificationException {
         try {
             server = new ServerSocket(Const.Port);
 
@@ -41,7 +38,7 @@ public class Server {
     }
 
 
-    private void closeAll() {
+    private void closeAll() throws ConcurrentModificationException {
         try {
             server.close();
             synchronized(connections) {
@@ -80,7 +77,7 @@ public class Server {
 
 
         @Override
-        public void run() {
+        public void run() throws ConcurrentModificationException {
             try {
                 name = in.readLine();
                 Iterator<Connection> iter = connections.iterator();
@@ -114,7 +111,7 @@ public class Server {
     }
 
 
-    public void close() {
+    public void close() throws ConcurrentModificationException {
         try {
             in.close();
             out.close();

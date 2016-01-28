@@ -23,7 +23,7 @@ public class Main {
                 new Client();
                 break;
             } else {
-                System.out.println("�����४�� ����. ������.");
+                System.out.println("You made wrong choice. Please choose S or C");
             }
         }
     }

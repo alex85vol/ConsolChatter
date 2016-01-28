@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ConcurrentModificationException;
 import java.util.Scanner;
 
 
@@ -16,7 +17,7 @@ public class Client {
     private PrintWriter out;
     private Socket socket;
 
-    public Client() {
+    public Client() throws ConcurrentModificationException {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Enter IP for connection to server.");
@@ -48,7 +49,7 @@ public class Client {
     }
 
 
-    private void close() {
+    private void close() throws ConcurrentModificationException {
         try {
             in.close();
             out.close();
@@ -70,7 +71,7 @@ public class Client {
 
 
         @Override
-        public void run() {
+        public void run()throws ConcurrentModificationException {
             try {
                 while (!stoped) {
                     String str = in.readLine();
