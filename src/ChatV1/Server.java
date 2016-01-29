@@ -1,6 +1,4 @@
-package server;
-
-import main.Const;
+package ChatV1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

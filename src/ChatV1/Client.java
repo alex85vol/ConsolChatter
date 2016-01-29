@@ -1,4 +1,4 @@
-package client;
+package ChatV1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class Client {
 
         try {
 
-            socket = new Socket(ip, main.Const.Port);
+            socket = new Socket(ip, Const.Port);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 

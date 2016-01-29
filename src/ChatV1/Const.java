@@ -1,4 +1,4 @@
-package main;
+package ChatV1;
 
 /**
  * Created by ovo on 22.01.2016.
